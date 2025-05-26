@@ -8,3 +8,6 @@ def index(request):
 
 def about(request):
     return HttpResponse("this is about page")
+
+def contact(request):
+    return HttpResponse("this is an contact page")
