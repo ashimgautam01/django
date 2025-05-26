@@ -1,17 +1,129 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{homepage}}</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-</head>
-<body>
-    
-    <h1>message: {{ message}}</h1>
-    
-    <img src="{% static 'images/python.jpg' %}" alt="Logo" />
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal | {{title}}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <nav
+      class="fixed top-0 left-0 w-full z-50 flex justify-center bg-gradient-to-br from-blue-100 to-purple-200 py-4 shadow-md"
+    >
+      <ul
+        class="hidden md:flex justify-center space-x-8 bg-white bg-opacity-90 rounded-full shadow-lg px-10 py-3 border border-purple-200 backdrop-blur"
+      >
+        <li>
+          <a
+            href="/"
+            class="text-white bg-purple-500 font-semibold px-4 py-2 rounded-full transition-all duration-300 ease-in-out"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="/about"
+            class="font-semibold hover:text-white hover:bg-purple-500 px-4 py-2 rounded-full transition-all duration-300 ease-in-out"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="/contact"
+            class="font-semibold hover:text-white hover:bg-purple-500 px-4 py-2 rounded-full transition-all duration-300 ease-in-out"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <section class="pt-32 pb-20 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{{heading}}</h1>
+      <p class="text-xl text-gray-600 max-w-xl mx-auto italic">{{subhead}}</p>
+
+      <div class="mt-8 flex justify-center gap-6 flex-wrap">
+        <img
+          src="{% static 'images/code.jpg' %}"
+          alt="Django Illustration"
+          class="w-32 h-auto transform hover:scale-110"
+        />
+        <img
+          src="{% static 'images/html.jpg' %}"
+          alt="Web Development Frameworks"
+          class="w-32 h-auto transform hover:scale-110"
+        />
+        <img
+          src="{% static 'images/react.jpg' %}"
+          alt="Web Development Frameworks"
+          class="w-32 h-auto transform hover:scale-110"
+        />
+        <img
+          src="{% static 'images/python.jpg' %}"
+          alt="Web Development Frameworks"
+          class="w-32 h-auto transform hover:scale-110"
+        />
+      </div>
+    </section>
+
+    <section class="bg-white py-16 px-4 md:px-16">
+      <h2 class="text-3xl font-bold text-center text-purple-600 mb-8">
+        {{learn_approach}}
+      </h2>
+      <div class="max-w-4xl mx-auto space-y-6 text-gray-700 text-lg">
+        <p>🔹 {{point_1}}</p>
+        <p>🔹{{point_2}}</p>
+        <p>🔹 {{point_3}}</p>
+        <p>🔹 {{point_4}}</p>
+        <p>🔹 {{point_5}}</p>
+      </div>
+    </section>
+
+    <section class="bg-purple-50 py-16 px-4 md:px-16">
+      <h2 class="text-3xl font-bold text-center mb-8">{{project_ideas}}</h2>
+      <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto text-gray-800">
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-110">
+          <h3 class="text-xl font-semibold mb-2">
+            ✅
+            <a href="/projects/{{ pro_1|urlencode }}" class="hover:underline"
+              >{{ pro_1_title }}</a
+            >
+          </h3>
+          <p class="text-purple-600 font-medium">{{ pro_1_desc }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-110 ml-2">
+          <h3 class="text-xl font-semibold mb-2">
+            📝
+            <a href="/projects/{{ pro_2|urlencode }}" class="hover:underline"
+              >{{ pro_2_title }}</a
+            >
+          </h3>
+          <p class="text-purple-600 font-medium">{{ pro_2_desc }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-110 ">
+          <h3 class="text-xl font-semibold mb-2">
+            📦
+            <a href="/projects/{{ pro_3|urlencode }}" class="hover:underline"
+              >{{ pro_3_title }}</a
+            >
+          </h3>
+          <p class="text-purple-600 font-medium">{{ pro_3_desc }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-110 ml-2">
+          <h3 class="text-xl font-semibold mb-2">
+            💬
+            <a href="/projects/{{ pro_4|urlencode }}" class="hover:underline"
+              >{{ pro_4_title }}</a
+            >
+          </h3>
+          <p class="text-purple-600 font-medium">{{ pro_4_desc }}</p>
+        </div>
+      </div>
+    </section>
+
     <script src="{% static 'scripts/main.js' %}"></script>
-</html> 
+  </body>
+</html>
