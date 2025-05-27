@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Ashim{% endblock  %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <scripts src="{% static "main.js" %}}"></scripts>
+</head>
+<body class="bg-black text-white font-sans">
+  <nav class="flex justify-between items-center p-6 absolute w-full z-10">
+  <div class="text-white text-lg font-bold transform transition duration-300 hover:scale-110 animation animate-bounce">Ashim</div>
+  
+  <ul class="flex space-x-8 text-sm font-bold text-gray-200">
+    <li>
+      <a href="{% url 'homepage' %}" 
+         class="relative transition duration-300 after:absolute after:left-0 after:bottom-0 after:h-[4px]  after:w-0 
+                after:bg-pink-600 hover:after:w-full after:transition-all after:duration-300 
+                hover:text-white">
+        Portfolio
+      </a>
+    </li>
+    <li>
+      <a href="{% url "about" %}" 
+         class="relative transition duration-300 after:absolute after:left-0 after:bottom-0 after:h-[4px] after:w-0 
+                after:bg-pink-600 hover:after:w-full after:transition-all after:duration-300 
+                hover:text-white">
+        About
+      </a>
+    </li>
+    <li>
+      <a href="{% url "project" %}" 
+         class="relative transition duration-300 after:absolute after:left-0 after:bottom-0 after:h-[4px] after:w-0 
+                after:bg-pink-600 hover:after:w-full after:transition-all after:duration-300 
+                hover:text-white">
+        Projects
+      </a>
+    </li>
+    <li>
+      <a href="{% url "skills" %}" 
+         class="relative transition duration-300 after:absolute after:left-0 after:bottom-0 after:h-[4px] after:w-0 
+                after:bg-pink-600 hover:after:w-full after:transition-all after:duration-300 
+                hover:text-white">
+        Skills
+      </a>
+    </li>
+    <li>
+      <a href="{% url "contact" %}" 
+         class="relative transition duration-300 after:absolute after:left-0 after:bottom-0 after:h-[4px] after:w-0 
+                after:bg-pink-600 hover:after:w-full after:transition-all after:duration-300 
+                hover:text-white">
+        Contact
+      </a>
+    </li>
+  </ul>
+
+  <div class="flex space-x-4 text-gray-200 text-xl">
+    <a href="#" class="hover:text-white transition transform hover:scale-125 duration-300">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="#" class="hover:text-white transition transform hover:scale-125 duration-300">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+</nav>
+
+  <main>
+    {% block content %}{% endblock content %}
+  </main>
+</body>
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 3s ease-out both;
+  }
+
+  .animate-zoomIn {
+    animation: zoomIn 5s ease-out both;
+  }
+</style>
+</html>
