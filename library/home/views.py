@@ -12,7 +12,7 @@ def home(request):
 def Books_page(request):
     data=Books.objects.all()
     print(data)
-    return render(request,'books.html')
+    return render(request,'books.html',{'book':data})
 
 
 def single_Book(request,id):
