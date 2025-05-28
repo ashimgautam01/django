@@ -11,15 +11,13 @@ def home(request):
 
 def Books_page(request):
     data=Books.objects.all()
-    print(data)
     return render(request,'books.html',{'book':data})
 
 
-def single_Book(request,id):
-    book=get_object_or_404(Books,id)
-    print(book)
-    return render(request,'singleBook.html')
+def single_Book(request,id):    
+    book=get_object_or_404(Books,id=id)
+    return render(request,'singleBook.html',{'book':book})
 
 def single_Author(request,id):
     author = get_object_or_404(Author,id=id)
-    return render(request, 'singleAuthor.html')
+    return render(request, 'singleAuthor.html',{'author':author})
