@@ -3,12 +3,14 @@
 {% block title %}Home{% endblock title %}
 {% block content %}
   <section class="relative w-full h-screen overflow-hidden">
-      <img
-        src="{% static 'images/python.jpg' %}"
-        alt="Hero Image"
+         <video
+        src="{% static 'images/ty.mp4' %}"
+        autoplay
+        muted
+        loop
+        playsinline
         class="w-full h-full object-cover transform scale-100 hover:scale-105 transition duration-1000 ease-in-out"
-      />
-
+      ></video>
       <div
         class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent flex items-center"
       >
