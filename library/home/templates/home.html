@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<body class="bg-gray-50 min-h-screen">
+  
+    <section class="relative pt-20 pb-32 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
+            <div class="absolute top-0 right-0 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute -bottom-8 left-1/2 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+                    Where Stories
+                    <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent block">
+                        Come to Life
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-10 leading-relaxed italicn">
+                    Discover exceptional content from talented writers around the world. Join our community of storytellers, journalists, and creative minds sharing their unique perspectives.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                    <button class="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl hover:from-purple-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 font-bold text-lg shadow-2xl">
+                        Explore Articles
+                    </button>
+                    <button class="px-8 py-4 border-2 border-purple-600 text-purple-600 rounded-2xl hover:bg-purple-600 hover:text-white transition-all duration-300 font-bold text-lg">
+                        Meet Our Authors
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center animate-slide-up">
+                        <div class="text-4xl md:text-5xl font-bold text-purple-600 mb-2">250+</div>
+                        <div class="text-gray-600 font-medium">Active Authors</div>
+                    </div>
+                    <div class="text-center animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="text-4xl md:text-5xl font-bold text-indigo-600 mb-2">1.2K+</div>
+                        <div class="text-gray-600 font-medium">Articles Published</div>
+                    </div>
+                    <div class="text-center animate-slide-up" style="animation-delay: 0.4s;">
+                        <div class="text-4xl md:text-5xl font-bold text-blue-600 mb-2">50K+</div>
+                        <div class="text-gray-600 font-medium">Monthly Readers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Featured Articles
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover the most engaging and thought-provoking content from our talented community of writers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-bounce-in">
+                    <div class="relative h-48 bg-gradient-to-br from-purple-400 to-indigo-500">
+                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 text-purple-700 rounded-full text-sm font-semibold">Technology</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">
+                            The Future of Artificial Intelligence in Creative Writing
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Exploring how AI is revolutionizing the creative writing process and what it means for authors and readers alike.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                    JS
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-gray-900">Jane Smith</div>
+                                    <div class="text-xs text-gray-500">2 days ago</div>
+                                </div>
+                            </div>
+                            <button class="text-purple-600 hover:text-purple-700 font-semibold text-sm">
+                                Read More →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-bounce-in" style="animation-delay: 0.1s;">
+                    <div class="relative h-48 bg-gradient-to-br from-blue-400 to-teal-500">
+                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 text-blue-700 rounded-full text-sm font-semibold">Science</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                            Ocean Conservation: A Global Perspective
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Understanding the critical role of marine ecosystems and the urgent need for comprehensive conservation efforts.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                    MD
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-gray-900">Michael Davis</div>
+                                    <div class="text-xs text-gray-500">4 days ago</div>
+                                </div>
+                            </div>
+                            <button class="text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                                Read More →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <article class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-bounce-in" style="animation-delay: 0.2s;">
+                    <div class="relative h-48 bg-gradient-to-br from-pink-400 to-red-500">
+                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-white/90 text-pink-700 rounded-full text-sm font-semibold">Literature</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-pink-600 transition-colors duration-300">
+                            The Power of Storytelling in Modern Society
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            How narratives shape our understanding of the world and connect us across cultures and generations.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                    EW
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-gray-900">Emily Wilson</div>
+                                    <div class="text-xs text-gray-500">1 week ago</div>
+                                </div>
+                            </div>
+                            <button class="text-pink-600 hover:text-pink-700 font-semibold text-sm">
+                                Read More →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl hover:from-purple-700 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300 font-bold text-lg shadow-lg">
+                    View All Articles
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Explore Categories
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Dive deep into topics that interest you most with content from expert writers in every field.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Category Card 1 -->
+                <div class="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center animate-slide-up">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Technology</h3>
+                    <p class="text-gray-600 text-sm mb-4">Latest trends in AI, blockchain, and emerging technologies</p>
+                    <div class="text-purple-600 font-semibold text-sm">128 Articles</div>
+                </div>
+
+                <!-- Category Card 2 -->
+                <div class="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-teal-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Science</h3>
+                    <p class="text-gray-600 text-sm mb-4">Discoveries, research, and scientific breakthroughs</p>
+                    <div class="text-blue-600 font-semibold text-sm">95 Articles</div>
+                </div>
+
+                <!-- Category Card 3 -->
+                <div class="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Literature</h3>
+                    <p class="text-gray-600 text-sm mb-4">Creative writing, poetry, and literary analysis</p>
+                    <div class="text-pink-600 font-semibold text-sm">76 Articles</div>
+                </div>
+
+                <!-- Category Card 4 -->
+                <div class="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Business</h3>
+                    <p class="text-gray-600 text-sm mb-4">Entrepreneurship, finance, and market insights</p>
+                    <div class="text-green-600 font-semibold text-sm">112 Articles</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Ready to Share Your Story?
+            </h2>
+            <p class="text-xl text-purple-100 mb-10 max-w-3xl mx-auto">
+                Join our community of writers and share your unique perspective with readers around the world. Start your journey today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button class="px-8 py-4 bg-white text-purple-600 rounded-2xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 font-bold text-lg shadow-2xl">
+                    Become an Author
+                </button>
+                <button class="px-8 py-4 border-2 border-white text-white rounded-2xl hover:bg-white hover:text-purple-600 transition-all duration-300 font-bold text-lg">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+   
+{% endblock content %}
