@@ -20,4 +20,5 @@ def single_Book(request,id):
 
 def single_Author(request,id):
     author = get_object_or_404(Author,id=id)
+    
     return render(request, 'singleAuthor.html',{'author':author})

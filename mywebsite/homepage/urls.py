@@ -8,5 +8,7 @@ urlpatterns = [
     path("about/",about,name="about"),
     path("contact/",contact,name="contact"),
     path("project/",project,name="project"),
+    path("project/<int:id>",project_with_id,name="single"),
     path("skills/",skills,name="skills")
+
 ]

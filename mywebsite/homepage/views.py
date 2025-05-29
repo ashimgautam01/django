@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,get_object_or_404
+from .models import *
 # Create your views here.
 
 
@@ -23,29 +23,31 @@ def contact(request):
     return render(request,'contact/contact.html')
 
 def project(request):
-    project_details={
-         'portfolio': {
-        'title': 'Portfolio Website',
-        'description': 'Showcase your skills, resume, and projects with a personal touch.',
-        'image': 'images/code.jpg'
-    },
-    'blog': {
-        'title': 'Blog Platform',
-        'description': 'Build a fully functional blog with user login, post creation, and comments.',
-        'image': 'images/html.jpg'
-    },
-    'chat': {
-        'title': 'Blog Platform',
-        'description': 'Build a fully functional blog with user login, post creation, and comments.',
-        'image': 'images/python.jpg'
-    },
-    'Mental Health': {
-        'title': 'Health Platform',
-        'description': 'Build a fully functional Mental health with user login, post creation, and docotors appointments.',
-        'image': 'images/react.jpg'
-    },
+    # project_details={
+    #      'portfolio': {
+    #     'title': 'Portfolio Website',
+    #     'description': 'Showcase your skills, resume, and projects with a personal touch.',
+    #     'image': 'images/code.jpg'
+    # },
+    # 'blog': {
+    #     'title': 'Blog Platform',
+    #     'description': 'Build a fully functional blog with user login, post creation, and comments.',
+    #     'image': 'images/html.jpg'
+    # },
+    # 'chat': {
+    #     'title': 'Blog Platform',
+    #     'description': 'Build a fully functional blog with user login, post creation, and comments.',
+    #     'image': 'images/python.jpg'
+    # },
+    # 'Mental Health': {
+    #     'title': 'Health Platform',
+    #     'description': 'Build a fully functional Mental health with user login, post creation, and docotors appointments.',
+    #     'image': 'images/react.jpg'
+    # },
 
-    }
+    # }
+    project_details=Project.objects.all()
+    
     return render(request,'homepage/project.html',{'project':project_details})
 
 def skills(request):
@@ -97,3 +99,8 @@ def skills(request):
     }
 
     return render(request,'homepage/skill.html',{'skills':data})
+
+def project_with_id(request,id):
+    project=get_object_or_404(Project,id=id)
+
+    return render(request,'homepage/single.html',{"project":project})

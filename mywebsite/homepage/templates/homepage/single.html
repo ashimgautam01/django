@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ project.title }} | Ashim{% endblock %}
+
+{% block content %}
+<div class="min-h-[80vh] flex items-center justify-center px-6 py-28">
+  <div class="max-w-4xl w-full bg-gray-900 rounded-lg shadow-lg overflow-hidden animate-fadeInUp">
+    <img src="{% static project.image %}" alt="{{ project.title }}" class="w-full h-64 object-cover" />
+
+    <div class="p-8 flex flex-col space-y-6">
+      <h1 class="text-4xl font-bold border-b-4 border-pink-600 inline-block pb-1">
+        {{ project.title }}
+      </h1>
+      
+      <p class="text-gray-300 text-lg leading-relaxed whitespace-pre-line">
+        {{ project.description }}
+      </p>
+
+      <div>
+        <h2 class="text-2xl font-semibold mb-2">Technologies Used:</h2>
+        <ul class="list-disc list-inside text-gray-400 space-y-1">
+          {% for tech in project.technology %}
+            <li>{{ tech }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {% if project.demo %}
+      <div class="flex justify-center">
+        <a href="{{ project.demo }}" target="_blank" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded transition duration-300">
+          View Project
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
