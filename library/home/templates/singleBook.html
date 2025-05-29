@@ -10,14 +10,12 @@
             <div class="text-6xl mb-4">📖</div>
             <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ book.name }}</h1>
             {% if book.author %}
-            <p class="text-xl text-blue-100">by {% for b in  book.author.all %}{{ b.name }}{% endfor %}</p>
+            <p class="text-xl text-blue-100">{% for b in  book.author.all %} ✍️ {{ b.name }}{% endfor %}</p>
             {% endif %} 
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="max-w-4xl mx-auto px-4 py-12">
-        <!-- Action Buttons -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <button class="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 font-semibold text-lg">
                 📖 Start Reading
@@ -39,7 +37,13 @@
                 {% if book.author %}
                 <div class="flex justify-between items-center py-3 border-b border-gray-100">
                     <span class="font-medium text-gray-600">Author</span>
-                    <span class="text-gray-900">{% for b in book.author.all %}{{b.name}}{% endfor %}</span>
+                    <span class="text-gray-900">{% for b in book.author.all %} ✍️ {{b.name}}{% endfor %}</span>
+                </div>
+                {% endif %}
+                {% if book.edition  %}
+                <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                    <span class="font-medium text-gray-600">Edition</span>
+                    <span class="text-gray-900">{{book.edition}}</span>
                 </div>
                 {% endif %}
                 {% if book.page %}
