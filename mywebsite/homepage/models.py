@@ -8,4 +8,24 @@ class Project(models.Model):
     demo=models.URLField(default="")
 
     def __str__(self):
-        return f"{self.title}"
+        return f"{self.title}"\
+        
+
+class Personal(models.Model):
+    name=models.CharField( max_length=50)
+    profile=models.CharField()
+    email=models.EmailField()
+    description=models.CharField(default="")
+    location=models.CharField(default="")
+    phone=models.CharField()
+    role=models.CharField()
+    domin=models.CharField()
+    github=models.URLField(default="")
+    linkden=models.URLField(default="")
+    facebook=models.URLField(default="")
+    portfolio=models.URLField(default="")
+
+    def __str__(self):
+        return f"{self.name}"
+    
+    

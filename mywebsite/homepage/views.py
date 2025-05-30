@@ -12,10 +12,7 @@ def index(request):
 
 def about(request):
     context={
-        "name":"Ashim Gautam",
-        "description":"  Hi! I'm passionate about web development and Django. I love building beautiful and functional websites.",
-        "location":"pokhara,Nepal",
-        "role":"Student"
+       "user":Personal.objects.all()
     }
     return render(request,'about/about.html',context)
 
