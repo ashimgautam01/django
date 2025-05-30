@@ -23,3 +23,10 @@ class Member(models.Model):
     def __str__(self):
         return self.name
     
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=100)
+    feedback = models.TextField()
+
+    def __str__(self):
+        return f"{self.name}"
