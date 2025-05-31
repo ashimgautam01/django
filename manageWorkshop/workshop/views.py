@@ -59,3 +59,6 @@ def show_feedback(request):
           "form":feeds
      }
     return render(request, 'workshop/showall.html',context)
+
+def home(request):
+     return render(request,'workshop/showall.html')
