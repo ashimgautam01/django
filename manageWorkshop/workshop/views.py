@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from .models import *
 from .forms import *
+from django.contrib.auth.decorators import login_required
 
 def workshop_list(request):
  
@@ -62,3 +63,14 @@ def show_feedback(request):
 
 def home(request):
      return render(request,'workshop/showall.html')
+
+
+@login_required(login_url="login")
+def profile(request):
+    # if not request.user.is_authenticated:
+    #     return HttpResponse("Please login is first")
+    
+    context={
+        'key':"34343453"
+    }
+    return render(request,'profile.html',context)
