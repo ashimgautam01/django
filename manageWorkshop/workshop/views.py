@@ -49,7 +49,7 @@ def form(request):
 def feedback_view(request):
     form = FeedbackForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        form.save() 
         return render(request, 'workshop/thank.html')
     return render(request, 'workshop/show.html', {'form': form})
 

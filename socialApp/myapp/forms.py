@@ -1,8 +1,13 @@
 from django import forms
+from .models import *
 
-class postForm(forms.Form):
-    description=forms.CharField()
-    image=forms.CharField()
-    # user:
-    like=forms.IntegerField(default=0)
-    created_at=forms.DateTimeField(auto_now=True)
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['description', 'image'] 
+    
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model=Comment
+        fields=["content"]

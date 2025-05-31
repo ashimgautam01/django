@@ -1,6 +1,154 @@
 {% extends "base.html" %}
 {% block title %}Create Post{% endblock title %}
 {% block content %}
-hi
 
+
+<body class="bg-gray-900 text-white min-h-screen">
+
+    <button class="floating-back w-12 h-12 rounded-full flex items-center justify-center z-40" onclick="history.back()">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+    </button>
+
+    <div class="pt-24 max-w-2xl mx-auto px-6 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-4">
+                Create <span class="text-gradient">Post</span>
+            </h1>
+            <p class="text-gray-300 text-lg">Share your thoughts with the community</p>
+        </div>
+
+ 
+        <div class="form-card rounded-3xl p-8">
+            <form method="POST" id="postForm" action="{% url "create" %}">
+                {% csrf_token %}
+                
+                <div class="flex items-center space-x-4 mb-6 pb-6 border-b border-gray-700">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-xl font-bold">
+                        You
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold">Creating New Post</h3>
+                        <p class="text-gray-400">Share what's on your mind</p>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="id_description" class="block text-sm font-semibold text-gray-300 mb-3">
+                        What's happening?
+                    </label>
+                    <div class="relative">
+                        <textarea 
+                            name="description" 
+                            id="id_description" 
+                            rows="6"
+                            placeholder="Share your thoughts, experiences, or anything that's on your mind..."
+                            class="w-full bg-gray-800/50 border border-gray-600 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 resize-none"
+                            maxlength="500"
+                            required
+                        ></textarea>
+                        <div class="absolute bottom-4 right-4 text-sm char-counter" id="charCounter">
+                            <span id="charCount">0</span>/500
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-300 mb-3">
+                        Add Image (Optional)
+                    </label>
+                    
+                    <div class="file-upload-area rounded-2xl p-8 text-center cursor-pointer" id="uploadArea">
+                        <input type="file" name="image" id="id_image" accept="image/*" class="hidden">
+                        <div id="uploadContent">
+                            <svg class="w-12 h-12 mx-auto mb-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <p class="text-lg font-semibold mb-2">Drop your image here</p>
+                            <p class="text-gray-400 mb-4">or click to browse</p>
+                            <div class="inline-flex items-center space-x-2 bg-purple-600/20 text-purple-300 px-4 py-2 rounded-full">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                </svg>
+                                <span>Choose File</span>
+                            </div>
+                        </div>
+                        
+                        <div id="imagePreview" class="hidden"></div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <input 
+                            type="url" 
+                            name="image_url" 
+                            id="id_image_url"
+                            placeholder="Or paste an image URL..."
+                            class="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors"
+                        >
+                    </div>
+                </div>
+                <input type="hidden" name="like" value="0">
+                <input type="hidden" name="created_at" id="id_created_at">
+
+                <div class="mb-8 p-4 bg-gray-800/30 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="font-medium">Public Post</span>
+                        </div>
+                        <span class="text-sm text-gray-400">Everyone can see this post</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-end">
+                    <button 
+                        type="button" 
+                        onclick="history.back()"
+                        class="px-8 py-3 border border-gray-600 rounded-full text-gray-300 hover:bg-gray-700 hover:border-gray-500 transition-all duration-300"
+                    >
+                        Cancel
+                    </button>
+                    <button 
+                        type="submit"
+                        id="submitBtn"
+                        class="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span class="flex items-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                            <span>Share Post</span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="mt-8 p-6 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-2xl border border-purple-500/20">
+            <h3 class="font-semibold mb-3 flex items-center space-x-2">
+                <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <span class="text-gradient">Tips for Great Posts</span>
+            </h3>
+            <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-start space-x-2">
+                    <span class="text-purple-400 mt-1">•</span>
+                    <span>Keep it authentic and share your genuine thoughts</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                    <span class="text-purple-400 mt-1">•</span>
+                    <span>Add relevant images to make your post more engaging</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                    <span class="text-purple-400 mt-1">•</span>
+                    <span>Ask questions to encourage community interaction</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
 {% endblock content %}
