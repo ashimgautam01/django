@@ -1,4 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
+from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
+
 from .forms import *
 from .models import *
 
@@ -44,9 +47,18 @@ def get_comment(request, id):
 def like_post(request, id):
     post = get_object_or_404(Post, id=id)
     post.like += 1
+
     post.save()
     print(post)
     return redirect('getall')   
 
 def get_profile(request):
     return render(request,'profile.html')
+
+def logout_user(request):
+    logout(request)
+    redirect("home")
+
+def register_user(request):
+    form=UserCreationForm()
+    return render(request,'register.html')

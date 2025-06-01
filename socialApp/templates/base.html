@@ -22,9 +22,15 @@
                     <a href="#" class="hover:text-purple-400 transition-colors duration-300">Features</a>
                     <a href="{% url "getall" %}" class="hover:text-purple-400 transition-colors duration-300">Community</a>
                     <a href="#" class="hover:text-purple-400 transition-colors duration-300">About</a>
-                    <button class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-105">
-                        Sign In
-                    </button>
+                    {% if request.user %}
+                        <a  href="{% url "logout" %}" class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-105">
+                        Logout
+                    </a>
+                    {% else %}
+                        <a href="login" class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-105">
+                        Log In
+                    </a>
+                    {% endif %}
                 </div>
                 
                 <button class="md:hidden">

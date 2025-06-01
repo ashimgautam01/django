@@ -1,14 +1,5 @@
 from django.db import models
-
 # Create your models here.
-class User(models.Model):
-    name=models.CharField()
-    email=models.EmailField()
-    phone=models.IntegerField()
-    # profile=models.ImageField(max_length=255)
-    bio=models.CharField()
-    def __str__(self):
-        return self.name
     
 
 class Post(models.Model):
