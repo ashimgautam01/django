@@ -17,17 +17,7 @@ def student_api(request):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
-
-
-
-
-
-
-
-
-
-
-
+    
 @api_view(['POST','GET'])
 def department(request):
     if request.method=='GET':

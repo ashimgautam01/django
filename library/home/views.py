@@ -22,3 +22,17 @@ def single_Author(request,id):
     author = get_object_or_404(Author,id=id)
     
     return render(request, 'singleAuthor.html',{'author':author})
+
+
+
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import AuthorSerializer
+
+@api_view(['POST','GET'])
+def get_author(request):
+    if request.method=='GET':
+        authors=Author.objects.all()
+        serializer=AuthorSerializer(authors,many=True)
+        return Response(serializer.data)
